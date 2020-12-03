@@ -1,7 +1,7 @@
 <!DOCTYPE HTML>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
-    <title>Блог сайта</title>
+    <title>Cтатья</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"/>
 </head>
@@ -10,11 +10,12 @@
 <header th:insert="blocks/header :: header"></header>
 
 <div class="container mt-5">
-    <h1>Блог сайта</h1>
-    <div th:each="post : ${posts}" class="alert alert-info mt-2">
-        <h3 th:text="${post.getTitle()}"/>
-        <p th:text="${post.getAnons()}"/>
-        <a th:href="'/blog/' + ${post.getId()}" class="btn btn-warning">Детальнее</a>
+    <div th:each="el : ${post}" class="alert alert-info mt-2">
+        <h3 th:text="${el.getTitle()}"/>
+        <p th:text="${el.getFulText()}"/>
+        <p th:text="${el.getViews()}"/>
+        <a th:href="'/blog/' + ${el.getId()} + '/edit'" class="btn btn-warning">Редактировать</a>
+        <a th:href="'/blog/' + ${el.getId()} + '/remove'" class="btn btn-warning">Удалить</a>
     </div>
 </div>
 
