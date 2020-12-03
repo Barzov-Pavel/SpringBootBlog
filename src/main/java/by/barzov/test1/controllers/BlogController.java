@@ -1,5 +1,6 @@
 package by.barzov.test1.controllers;
 
+import by.barzov.test1.aspect.Measurement;
 import by.barzov.test1.models.Post;
 import by.barzov.test1.repo.PostRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,6 +21,7 @@ public class BlogController
     private PostRepository postRepository;
 
     @GetMapping("/blog")
+    @Measurement
     public String blog(Model model)
     {
         Iterable<Post> posts = postRepository.findAll();
@@ -28,12 +30,14 @@ public class BlogController
     }
 
     @GetMapping("/blog/add")
+    @Measurement
     public String blogAdd(Model model)
     {
         return "blog-add";
     }
 
     @PostMapping("/blog/add")
+    @Measurement
     public String blogSave(@RequestParam String title, @RequestParam String anons,
                            @RequestParam String full_text, Model model)
     {
@@ -43,6 +47,7 @@ public class BlogController
     }
 
     @GetMapping("/blog/{id}")
+    @Measurement
     public String blogDetails(@PathVariable(value = "id") long id, Model model)
     {
         if (!postRepository.existsById(id))
@@ -64,6 +69,7 @@ public class BlogController
     }
 
     @GetMapping("/blog/{id}/edit")
+    @Measurement
     public String blogEdit(@PathVariable(value = "id") long id, Model model)
     {
         if (!postRepository.existsById(id))
@@ -79,6 +85,7 @@ public class BlogController
     }
 
     @PostMapping("/blog/{id}/edit")
+    @Measurement
     public String blogUpdate(@PathVariable(value = "id") long id, @RequestParam String title,
                              @RequestParam String anons, @RequestParam String full_text, Model model)
     {
@@ -91,6 +98,7 @@ public class BlogController
     }
 
     @PostMapping("/blog/{id}/remove")
+    @Measurement
     public String blogRemove(@PathVariable(value = "id") long id, Model model)
     {
         postRepository.deleteById(id);
