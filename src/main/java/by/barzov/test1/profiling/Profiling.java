@@ -1,4 +1,4 @@
-package by.barzov.test1.aspect;
+package by.barzov.test1.profiling;
 
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;

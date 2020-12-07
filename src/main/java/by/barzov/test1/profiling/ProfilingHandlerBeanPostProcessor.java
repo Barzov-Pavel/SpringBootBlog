@@ -1,4 +1,4 @@
-package by.barzov.test1.aspect;
+package by.barzov.test1.profiling;
 
 import org.springframework.beans.BeansException;
 import org.springframework.beans.factory.config.BeanPostProcessor;

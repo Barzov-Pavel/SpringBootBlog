@@ -1,6 +1,6 @@
 package by.barzov.test1.controllers;
 
-import by.barzov.test1.aspect.Profiling;
+import by.barzov.test1.profiling.Profiling;
 import by.barzov.test1.models.Post;
 import by.barzov.test1.repo.PostRepository;
 import org.springframework.beans.factory.annotation.Autowired;
