@@ -1,10 +1,12 @@
 package by.barzov.test1.controllers;
 
+import by.barzov.test1.aspect.Profiling;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
 @Controller
+@Profiling
 public class MainController
 {
     @GetMapping("/")
